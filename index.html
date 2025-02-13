@@ -1,40 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
+  <!-- Base href for Flutter web -->
   <base href="/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
 
-  <!-- iOS meta tags & icons -->
+  <!-- iOS & Mobile Web App Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="novar">
+  <meta name="apple-mobile-web-app-title" content="NOVAR">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
   <title>NOVAR</title>
+
+  <!-- Web App Manifest -->
   <link rel="manifest" href="manifest.json">
-  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js"></script>
-  <script>
-    // Your web app's Firebase configuration
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+
+    // Firebase configuration
     const firebaseConfig = {
       apiKey: "AIzaSyCkeUHT5wBxr2eNlNCFqUfyhayZ7VMzjv8",
       authDomain: "student-portal-a2284.firebaseapp.com",
@@ -45,11 +40,14 @@
     };
 
     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    console.log("Firebase Initialized");
   </script>
 </head>
 <body>
-  <script src="flutter_bootstrap.js" async></script>
-  <script src="main.dart.js" type="application/javascript"></script>
+<script src="flutter_bootstrap.js" async></script>
+<script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>
